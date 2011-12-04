@@ -1,2 +1,2 @@
-Access.Maintenance.enable: false
-Access.Maintenance.message: Down for maintenance
+Maintenance.enable: false
+Maintenance.message: Down for maintenance
