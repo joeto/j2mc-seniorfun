@@ -47,8 +47,8 @@ public class J2MC_SeniorFun extends JavaPlugin{
 		
 		this.getConfig().options().copyDefaults(true);
 		
-		this.maintenance_enable = this.getConfig().getBoolean("Access.Maintenance.enable");
-		this.maintenance_message = this.getConfig().getString("Access.Maintenance.message");
+		this.maintenance_enable = this.getConfig().getBoolean("Maintenance.enable");
+		this.maintenance_message = this.getConfig().getString("Maintenance.message");
 		
 		this.saveConfig();
 	}
