@@ -18,7 +18,7 @@ public class SayCommand extends MasterCommand{
 	
 	@Override
 	public void exec(CommandSender sender, String commandName, String[] args,
-			Player player, String playerName, boolean isPlayer) {
+			Player player, boolean isPlayer) {
 		if(!isPlayer || player.hasPermission("j2mc.senior")){
             if (args.length < 1) {
                 sender.sendMessage(ChatColor.RED + "Dude, you gotta /say SOMETHING");

@@ -15,10 +15,10 @@ public class MadagascarCommand extends MasterCommand {
 	}
 
 	public void exec(CommandSender sender, String commandName, String[] args,
-			Player player, String playerName, boolean isPlayer) {
+			Player player, boolean isPlayer) {
 		if (!isPlayer || player.hasPermission("j2mc.senior")) {
 			J2MC_Manager.getCore().adminAndLog(
-					playerName + " wants to SHUT. DOWN. EVERYTHING.");
+					player.getName() + " wants to SHUT. DOWN. EVERYTHING.");
 			/*
 			 * if (this.config.irc_enable) { 
 			 * 		if(name.equalsIgnoreCase("console")) {

@@ -18,7 +18,7 @@ public class KickAllCommand extends MasterCommand {
 
 	@Override
 	public void exec(CommandSender sender, String commandName, String[] args,
-			Player player, String playerName, boolean isPlayer) {
+			Player player, boolean isPlayer) {
 		if (!isPlayer || player.hasPermission("j2mc.senior")) {
 			String reason;
 			if (args.length == 0) {
