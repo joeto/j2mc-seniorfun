@@ -1,11 +1,8 @@
 package to.joe.j2mc.seniorfun;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event.Priority;
-import org.bukkit.event.Event.Result;
 import org.bukkit.event.Event.Type;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerPreLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,14 +25,19 @@ public class J2MC_SeniorFun extends JavaPlugin{
 
 	@Override
 	public void onEnable() {
-		J2MC_Manager.getLog().info("Senior Fun module enabled");
+		this.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
+			public void run(){
+				J2MC_Manager.getLog().info("Senior Fun module enabled");
+			}
+		});
 		
-		Bukkit.getServer().getPluginManager().registerEvent(Type.PLAYER_JOIN,
+		Bukkit.getServer().getPluginManager().registerEvent(Type.PLAYER_PRELOGIN,
 		new PlayerListener(){
 			public void onPlayerPreLogin(PlayerPreLoginEvent event) {
-				String player = event.getName();
-				//TODO: check if player is not admin.
+				//TODO: check if player is admin
+				if(maintenance_enable){
 				event.disallow(PlayerPreLoginEvent.Result.KICK_OTHER, maintenance_message);
+				}
 			}
 		}
 		, Priority.Normal,this);

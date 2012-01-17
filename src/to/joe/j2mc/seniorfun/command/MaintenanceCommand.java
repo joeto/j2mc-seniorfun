@@ -15,15 +15,17 @@ public class MaintenanceCommand extends MasterCommand {
 		super(seniorfun);
 	}
 
-	J2MC_SeniorFun seniorfun = new J2MC_SeniorFun();
-	boolean maintenance_enable = seniorfun.maintenance_enable;
-
 	public void exec(CommandSender sender, String commandName, String[] args,
 			Player player, boolean isPlayer) {
+		J2MC_SeniorFun seniorfun = new J2MC_SeniorFun();
+		boolean maintenance_enable = seniorfun.maintenance_enable;
 		if (!isPlayer || player.hasPermission("j2mc.senior")) {
+			if(seniorfun.getConfig().get("Maintenance.enable") != null){
+				J2MC_Manager.getLog().info("Maintenance is " + seniorfun.getConfig().getBoolean("Maintenance.enable"));
+			}
 			if (maintenance_enable == false) {
 				J2MC_Manager.getCore().adminAndLog(ChatColor.AQUA + player.getName() + " has turned on maintenance mode");
-				seniorfun.getConfig().set("Access.Maintenance.enable", true);
+				//seniorfun.getConfig().set("Access.Maintenance.enable", true);
 				seniorfun.saveConfig();
 				for (final Player p : Bukkit.getServer().getOnlinePlayers()) {
 					if ((p != null) && !p.hasPermission("j2mc.admin")) {

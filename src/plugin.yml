@@ -4,7 +4,6 @@ version: 0.0prealpha
 website: http://forums.joe.to
 author: J2 Minecraft Plugin Team
 description: Senior Fun module! (for ages 3 and up)
-depend: J2MC_Core
 commands:
   kickall:
     description: Kicks all player for specified reason or generic reason if nothing specified
