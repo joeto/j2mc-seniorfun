@@ -28,6 +28,9 @@ public class J2MC_SeniorFun extends JavaPlugin{
 		this.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
 			public void run(){
 				J2MC_Manager.getLog().info("Senior Fun module enabled");
+				if(maintenance_enable){
+					J2MC_Manager.getLog().info("Server is in maintenance mode.");
+				}
 			}
 		});
 		
@@ -41,6 +44,9 @@ public class J2MC_SeniorFun extends JavaPlugin{
 			}
 		}
 		, Priority.Normal,this);
+		
+		this.maintenance_enable = this.getConfig().getBoolean("Maintenance.enable");
+		this.maintenance_message = this.getConfig().getString("Maintenance.message");
 			
 		this.getCommand("kickall").setExecutor(new KickAllCommand(this));
 		this.getCommand("madagascar").setExecutor(new MadagascarCommand(this));
@@ -48,9 +54,6 @@ public class J2MC_SeniorFun extends JavaPlugin{
 		this.getCommand("maintenance").setExecutor(new MaintenanceCommand(this));
 		
 		this.getConfig().options().copyDefaults(true);
-		
-		this.maintenance_enable = this.getConfig().getBoolean("Maintenance.enable");
-		this.maintenance_message = this.getConfig().getString("Maintenance.message");
 		
 		this.saveConfig();
 	}
