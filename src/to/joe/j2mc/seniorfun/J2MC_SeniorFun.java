@@ -7,6 +7,7 @@ import org.bukkit.event.player.PlayerPreLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import to.joe.j2mc.core.J2MC_Manager;
+import to.joe.j2mc.seniorfun.command.FireAllAdminscommand;
 import to.joe.j2mc.seniorfun.command.KickAllCommand;
 import to.joe.j2mc.seniorfun.command.MadagascarCommand;
 import to.joe.j2mc.seniorfun.command.MaintenanceCommand;
@@ -33,6 +34,7 @@ public class J2MC_SeniorFun extends JavaPlugin {
         this.getCommand("madagascar").setExecutor(new MadagascarCommand(this));
         this.getCommand("say").setExecutor(new SayCommand(this));
         this.getCommand("maintenance").setExecutor(new MaintenanceCommand(this));
+        this.getCommand("firealladmins").setExecutor(new FireAllAdminscommand(this));
         
         this.saveConfig();
 
