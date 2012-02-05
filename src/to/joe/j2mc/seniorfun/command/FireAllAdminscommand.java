@@ -32,11 +32,12 @@ public class FireAllAdminscommand extends MasterCommand{
     @Override
     public void exec(CommandSender sender, String commandName, String[] args, Player player, boolean isPlayer) {
     	if(player.hasPermission("j2mc.senior")){
-    		for(Player plr: J2MC_Manager.getVisibility().getOnlinePlayers(null)){
+    		plugin.getLogger().info(player.getName() + " is firing all admins");
+    		for(Player plr: Bukkit.getServer().getOnlinePlayers()){
     			int x = plr.getLocation().getBlockX();
     			double y = plr.getLocation().getBlockY();
     			int z = plr.getLocation().getBlockZ();
-    			for(int i = 0; i > 10; i++){
+    			for(int i = 0; i < 10; i++){
     				double xToStrike;
     				double zToStrike;
     				if(randomGen.nextBoolean()){
@@ -50,12 +51,12 @@ public class FireAllAdminscommand extends MasterCommand{
     					zToStrike = z - randomGen.nextInt(6);
     				}
     				Location toStrike = new Location(plr.getWorld(),xToStrike, y, zToStrike);
-    				plr.getWorld().strikeLightning(toStrike);
+    				plr.getWorld().strikeLightningEffect(toStrike);
     			}
     			if(plr.hasPermission("j2mc.admin")){
                     final Packet60Explosion boom = new Packet60Explosion(x, y, z, 10, new HashSet<Block>());
                     ((CraftPlayer) plr).getHandle().netServerHandler.sendPacket(boom);
-                    final Vector newVelocity = new Vector(((randomGen.nextFloat() * 1.5) - 0.75) * 5, (randomGen.nextFloat() / 2.5) + (0.4 * 5), ((randomGen.nextFloat() * 1.5) - 0.75) * 5);
+                    final Vector newVelocity = new Vector(((randomGen.nextFloat() * 1.5) - 0.75) * 1, (randomGen.nextFloat() / 2.5) + (0.4 * 1), ((randomGen.nextFloat() * 1.5) - 0.75) * 1);
                     plr.setVelocity(newVelocity);
     			}
     		}
@@ -64,10 +65,11 @@ public class FireAllAdminscommand extends MasterCommand{
     				for(Player plr: J2MC_Manager.getVisibility().getOnlinePlayers(null)){
     					if(plr.hasPermission("j2mc.admin")){
     						plr.kickPlayer("Immediately fucking fired.");
+    						plugin.getLogger().info("Kicked " + plr.getName() + " for being an admin.");
     					}
     				}
     			}
-    		}, 160);
+    		}, 200);
     	}
     }
 	
