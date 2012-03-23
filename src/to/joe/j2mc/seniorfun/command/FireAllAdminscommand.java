@@ -19,12 +19,12 @@ import to.joe.j2mc.core.J2MC_Manager;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.seniorfun.J2MC_SeniorFun;
 
-public class FireAllAdminscommand extends MasterCommand{
+public class FireAllAdminsCommand extends MasterCommand{
 
 	Random randomGen = new Random();
 	Plugin j2mc_Seniorfun;
 	
-	public FireAllAdminscommand(J2MC_SeniorFun j2mc_SeniorFun){
+	public FireAllAdminsCommand(J2MC_SeniorFun j2mc_SeniorFun){
 		super(j2mc_SeniorFun);
 		this.j2mc_Seniorfun = j2mc_SeniorFun;
 	}
