@@ -34,7 +34,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
         this.getCommand("say").setExecutor(new SayCommand(this));
         this.getCommand("maintenance").setExecutor(new MaintenanceCommand(this));
         this.getCommand("firealladmins").setExecutor(new FireAllAdminsCommand(this));
-        
+
         this.saveConfig();
 
         this.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
@@ -48,7 +48,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
         });
         this.getServer().getPluginManager().registerEvents(this, this);
     }
-    
+
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerLogin(PlayerLoginEvent event) {
         if (J2MC_SeniorFun.this.maintenance_enable && !event.getPlayer().hasPermission("j2mc.core.admin")) {

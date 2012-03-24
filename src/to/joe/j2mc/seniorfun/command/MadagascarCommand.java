@@ -17,7 +17,7 @@ public class MadagascarCommand extends MasterCommand {
     @Override
     public void exec(CommandSender sender, String commandName, String[] args, Player player, boolean isPlayer) {
         if (sender.hasPermission("j2mc.senior")) {
-            J2MC_Manager.getCore().adminAndLog(player.getName() + " wants to SHUT. DOWN. EVERYTHING.");
+            J2MC_Manager.getCore().adminAndLog(sender.getName() + " wants to SHUT. DOWN. EVERYTHING.");
             for (final Player p : this.plugin.getServer().getOnlinePlayers()) {
                 if (p != null) {
                     p.saveData();
