@@ -28,7 +28,7 @@ public class MaintenanceCommand extends MasterCommand {
                 for (final Player p : this.plugin.getServer().getOnlinePlayers()) {
                     if ((p != null)) {
                         p.sendMessage(ChatColor.AQUA + "Server entering maintenance mode");
-                        if(!p.hasPermission("j2mc.admin")){
+                        if (!p.hasPermission("j2mc.admin")) {
                             p.kickPlayer("Server entering maintenance mode");
                         }
                     }
