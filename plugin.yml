@@ -38,4 +38,3 @@ commands:
 permissions:
   j2mc.senior:
     description: gives access to all the commands here
-    default: false
