@@ -51,7 +51,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerLogin(PlayerLoginEvent event) {
-        if (J2MC_SeniorFun.this.maintenance_enable && !event.getPlayer().hasPermission("j2mc.core.admin")) {
+        if (J2MC_SeniorFun.this.maintenance_enable && !event.getPlayer().hasPermission("j2mc.maintenance.override")) {
             event.disallow(PlayerLoginEvent.Result.KICK_OTHER, J2MC_SeniorFun.this.maintenance_message);
         }
     }
