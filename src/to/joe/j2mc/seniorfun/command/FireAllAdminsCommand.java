@@ -52,7 +52,7 @@ public class FireAllAdminsCommand extends MasterCommand {
                 final Location toStrike = new Location(plr.getWorld(), xToStrike, y, zToStrike);
                 plr.getWorld().strikeLightningEffect(toStrike);
             }
-            if (plr.hasPermission("j2mc.admin")) {
+            if (plr.hasPermission("j2mc.core.admin")) {
                 final Packet60Explosion boom = new Packet60Explosion(x, y, z, 10, new HashSet<Block>());
                 ((CraftPlayer) plr).getHandle().netServerHandler.sendPacket(boom);
                 final Vector newVelocity = new Vector(((this.randomGen.nextFloat() * 1.5) - 0.75) * 1, (this.randomGen.nextFloat() / 2.5) + (0.4 * 1), ((this.randomGen.nextFloat() * 1.5) - 0.75) * 1);
