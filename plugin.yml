@@ -1,4 +1,4 @@
-name: J2MC_SeniorFun
+name: SeniorFun
 main: to.joe.j2mc.seniorfun.J2MC_SeniorFun
 version: 1.0
 website: http://forums.joe.to
@@ -7,25 +7,36 @@ description: Senior Fun module! (for ages 3 and up)
 commands:
   kickall:
     description: Kicks all player for specified reason or generic reason if nothing specified
-    usage: |
-            /kickall reason
+    usage: /kickall reason
+    permission: j2mc.senior
+    permission-message: Nope
   madagascar:
     description: Shut. Down. Everything.
-    usage: |
-            /madagascar
+    usage: /madagascar
+    permission: j2mc.senior
+    permission-message: Nope
   say:
     description: Say something!
-    usage: |
-            /say message
+    usage: /say message
+    permission: j2mc.senior
+    permission-message: Nope
   maintenance:
     description: Put the server into maintenance mode!
-    usage: |
-            /maintenance
+    usage: /maintenance
+    permission: j2mc.senior
+    permission-message: Nope
   firealladmins:
     description: fire all admins
-    usage: |
-            /firealladmins
+    usage: /firealladmins
+    permission: j2mc.senior
+    permission-message: Nope
+  setspawn:
+    description: Set a spawn
+    usage: /setspawn yes omg yes
+    permission: j2mc.senior
+    permission-message: Nope
 permissions:
   j2mc.senior:
     description: gives access to all the commands here
-    default: op
+  j2mc.maintenance.override:
+    description: Join server in maintenance mode

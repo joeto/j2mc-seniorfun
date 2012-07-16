@@ -17,15 +17,13 @@ public class SayCommand extends MasterCommand {
 
     @Override
     public void exec(CommandSender sender, String commandName, String[] args, Player player, boolean isPlayer) {
-        if (sender.hasPermission("j2mc.senior")) {
-            if (args.length < 1) {
-                sender.sendMessage(ChatColor.RED + "Dude, you gotta /say SOMETHING");
-                return;
-            }
-            final String message = J2MC_Core.combineSplit(0, args, " ");
-            J2MC_Manager.getCore().adminAndLog(ChatColor.LIGHT_PURPLE + "[" + sender.getName() + "] " + message);
-            J2MC_Manager.getCore().messageNonAdmin(ChatColor.LIGHT_PURPLE + "[SERVER] " + message);
+        if (args.length < 1) {
+            sender.sendMessage(ChatColor.RED + "Dude, you gotta /say SOMETHING");
+            return;
         }
+        final String message = J2MC_Core.combineSplit(0, args, " ");
+        J2MC_Manager.getCore().adminAndLog(ChatColor.LIGHT_PURPLE + "[" + sender.getName() + "] " + message);
+        J2MC_Manager.getCore().messageNonAdmin(ChatColor.LIGHT_PURPLE + "[SERVER] " + message);
     }
 
 }

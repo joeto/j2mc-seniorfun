@@ -6,11 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import to.joe.j2mc.seniorfun.command.FireAllAdminsCommand;
-import to.joe.j2mc.seniorfun.command.KickAllCommand;
-import to.joe.j2mc.seniorfun.command.MadagascarCommand;
-import to.joe.j2mc.seniorfun.command.MaintenanceCommand;
-import to.joe.j2mc.seniorfun.command.SayCommand;
+import to.joe.j2mc.seniorfun.command.*;
 
 public class J2MC_SeniorFun extends JavaPlugin implements Listener {
 
@@ -34,6 +30,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
         this.getCommand("say").setExecutor(new SayCommand(this));
         this.getCommand("maintenance").setExecutor(new MaintenanceCommand(this));
         this.getCommand("firealladmins").setExecutor(new FireAllAdminsCommand(this));
+        this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
 
         this.saveConfig();
 
@@ -51,7 +48,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
 
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerLogin(PlayerLoginEvent event) {
-        if (J2MC_SeniorFun.this.maintenance_enable && !event.getPlayer().hasPermission("j2mc.core.admin")) {
+        if (J2MC_SeniorFun.this.maintenance_enable && !event.getPlayer().hasPermission("j2mc.maintenance.override")) {
             event.disallow(PlayerLoginEvent.Result.KICK_OTHER, J2MC_SeniorFun.this.maintenance_message);
         }
     }
