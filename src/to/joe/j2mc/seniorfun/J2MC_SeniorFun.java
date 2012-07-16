@@ -31,6 +31,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
         this.getCommand("maintenance").setExecutor(new MaintenanceCommand(this));
         this.getCommand("firealladmins").setExecutor(new FireAllAdminsCommand(this));
         this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
+        this.getCommand("shower").setExecutor(new ShowerCommand(this));
 
         this.saveConfig();
 

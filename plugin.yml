@@ -35,6 +35,11 @@ commands:
     usage: /setspawn yes omg yes
     permission: j2mc.senior
     permission-message: Nope
+  shower:
+    description: Meteor shower
+    usage: /shower
+    permission: j2mc.senior
+    permission-message: Nope   
 permissions:
   j2mc.senior:
     description: gives access to all the commands here
