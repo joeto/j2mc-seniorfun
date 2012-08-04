@@ -1,6 +1,6 @@
 package to.joe.j2mc.seniorfun.command;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.server.Block;
@@ -53,7 +53,7 @@ public class FireAllAdminsCommand extends MasterCommand {
                 plr.getWorld().strikeLightningEffect(toStrike);
             }
             if (plr.hasPermission("j2mc.core.admin")) {
-                final Packet60Explosion boom = new Packet60Explosion(x, y, z, 10, new HashSet<Block>());
+                final Packet60Explosion boom = new Packet60Explosion((double) x, (double) y, (double) z, 3, new ArrayList<Block>(), null);
                 ((CraftPlayer) plr).getHandle().netServerHandler.sendPacket(boom);
                 final Vector newVelocity = new Vector(((this.randomGen.nextFloat() * 1.5) - 0.75) * 1, (this.randomGen.nextFloat() / 2.5) + (0.4 * 1), ((this.randomGen.nextFloat() * 1.5) - 0.75) * 1);
                 plr.setVelocity(newVelocity);
