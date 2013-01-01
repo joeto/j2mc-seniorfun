@@ -11,14 +11,12 @@ import org.bukkit.util.Vector;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.seniorfun.J2MC_SeniorFun;
 
-public class ShowerCommand extends MasterCommand {
+public class ShowerCommand extends MasterCommand<J2MC_SeniorFun> {
     
-    public J2MC_SeniorFun plugin;
     private Random random = new Random();
 
     public ShowerCommand(J2MC_SeniorFun seniorfun) {
         super(seniorfun);
-        this.plugin = seniorfun;
     }
     
     @Override

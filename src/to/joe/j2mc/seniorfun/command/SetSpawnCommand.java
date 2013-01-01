@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.seniorfun.J2MC_SeniorFun;
 
-public class SetSpawnCommand extends MasterCommand {
+public class SetSpawnCommand extends MasterCommand<J2MC_SeniorFun> {
 
     public SetSpawnCommand(J2MC_SeniorFun seniorfun) {
         super(seniorfun);

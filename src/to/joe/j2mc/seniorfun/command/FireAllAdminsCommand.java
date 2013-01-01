@@ -1,15 +1,10 @@
 package to.joe.j2mc.seniorfun.command;
 
-import java.util.ArrayList;
 import java.util.Random;
-
-import net.minecraft.server.Block;
-import net.minecraft.server.Packet60Explosion;
-
-import org.bukkit.craftbukkit.entity.CraftPlayer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -19,7 +14,7 @@ import to.joe.j2mc.core.J2MC_Manager;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.seniorfun.J2MC_SeniorFun;
 
-public class FireAllAdminsCommand extends MasterCommand {
+public class FireAllAdminsCommand extends MasterCommand<J2MC_SeniorFun> {
 
     Random randomGen = new Random();
     Plugin j2mc_Seniorfun;
@@ -53,8 +48,7 @@ public class FireAllAdminsCommand extends MasterCommand {
                 plr.getWorld().strikeLightningEffect(toStrike);
             }
             if (plr.hasPermission("j2mc.core.admin")) {
-                final Packet60Explosion boom = new Packet60Explosion((double) x, (double) y, (double) z, 3, new ArrayList<Block>(), null);
-                ((CraftPlayer) plr).getHandle().netServerHandler.sendPacket(boom);
+                plr.playSound(plr.getLocation(), Sound.EXPLODE, 3, 3);
                 final Vector newVelocity = new Vector(((this.randomGen.nextFloat() * 1.5) - 0.75) * 1, (this.randomGen.nextFloat() / 2.5) + (0.4 * 1), ((this.randomGen.nextFloat() * 1.5) - 0.75) * 1);
                 plr.setVelocity(newVelocity);
             }

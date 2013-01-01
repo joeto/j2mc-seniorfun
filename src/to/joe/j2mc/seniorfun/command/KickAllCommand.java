@@ -9,7 +9,7 @@ import to.joe.j2mc.core.J2MC_Manager;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.seniorfun.J2MC_SeniorFun;
 
-public class KickAllCommand extends MasterCommand {
+public class KickAllCommand extends MasterCommand<J2MC_SeniorFun> {
 
     public KickAllCommand(J2MC_SeniorFun seniorfun) {
         super(seniorfun);

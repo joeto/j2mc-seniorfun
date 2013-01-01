@@ -8,13 +8,10 @@ import to.joe.j2mc.core.J2MC_Manager;
 import to.joe.j2mc.core.command.MasterCommand;
 import to.joe.j2mc.seniorfun.J2MC_SeniorFun;
 
-public class MaintenanceCommand extends MasterCommand {
-
-    public J2MC_SeniorFun plugin;
+public class MaintenanceCommand extends MasterCommand<J2MC_SeniorFun> {
 
     public MaintenanceCommand(J2MC_SeniorFun seniorfun) {
         super(seniorfun);
-        this.plugin = seniorfun;
     }
 
     @Override
