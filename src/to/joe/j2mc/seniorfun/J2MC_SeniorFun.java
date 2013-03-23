@@ -1,5 +1,9 @@
 package to.joe.j2mc.seniorfun;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -50,6 +54,18 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerLogin(PlayerLoginEvent event) {
         if (J2MC_SeniorFun.this.maintenance_enable && !event.getPlayer().hasPermission("j2mc.maintenance.override")) {
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+
+            try {
+                out.writeUTF("Maintenance");
+                out.writeUTF(J2MC_SeniorFun.this.maintenance_message);
+            } catch (IOException e) {
+                //Nope
+            }
+
+            event.getPlayer().sendPluginMessage(this, "BungeeCord", b.toByteArray());
+
             event.disallow(PlayerLoginEvent.Result.KICK_OTHER, J2MC_SeniorFun.this.maintenance_message);
         }
     }
