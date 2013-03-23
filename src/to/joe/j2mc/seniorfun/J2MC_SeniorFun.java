@@ -49,6 +49,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
             }
         });
         this.getServer().getPluginManager().registerEvents(this, this);
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     @EventHandler(priority = EventPriority.LOW)
