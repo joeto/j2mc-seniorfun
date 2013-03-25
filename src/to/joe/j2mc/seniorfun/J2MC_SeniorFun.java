@@ -49,7 +49,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
             }
         });
         this.getServer().getPluginManager().registerEvents(this, this);
-        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "SeniorFun");
     }
 
     @EventHandler(priority = EventPriority.LOW)
@@ -65,7 +65,7 @@ public class J2MC_SeniorFun extends JavaPlugin implements Listener {
                 //Nope
             }
 
-            event.getPlayer().sendPluginMessage(this, "BungeeCord", b.toByteArray());
+            event.getPlayer().sendPluginMessage(this, "SeniorFun", b.toByteArray());
 
             event.disallow(PlayerLoginEvent.Result.KICK_OTHER, J2MC_SeniorFun.this.maintenance_message);
         }
